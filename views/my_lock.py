@@ -71,8 +71,18 @@ def print_time(threadName):
         print("{0}: set count to {1}".format(threadName, count))
 
 
-lock1 = threading.Lock()
-lock2 = threading.Lock()
+#
+# lock1 = threading.Lock()
+# lock2 = threading.Lock()
+class Singleton:
+    __instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls.__instance:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
+
+
 if __name__ == '__main__':
     # t1 = MyThread1()
     # t2 = MyThread2()
@@ -85,12 +95,21 @@ if __name__ == '__main__':
     # t1.start()
     # t2.start()
     # print("2000000\n",num)
-    try:
-        t1 = threading.Thread(target=print_time, args=("Thread-1",))
-        t2 = threading.Thread(target=print_time, args=("Thread-2",))
-        t3 = threading.Thread(target=print_time, args=("Thread-3",))
-        t1.start()
-        t2.start()
-        t3.start()
-    except Exception as e:
-        print("Error: unable to start thread")
+    # try:
+    #     t1 = threading.Thread(target=print_time, args=("Thread-1",))
+    #     t2 = threading.Thread(target=print_time, args=("Thread-2",))
+    #     t3 = threading.Thread(target=print_time, args=("Thread-3",))
+    #     t1.start()
+    #     t2.start()
+    #     t3.start()
+    # except Exception as e:
+    #     print("Error: unable to start thread")
+    # x = "abc"
+    # y = "def"
+    # z = ["d", "e", "f"]
+    # print(x.join(y))
+    # print(x.join(z))
+    a = Singleton()
+    b = Singleton()
+    print(id(a))
+    print(id(b))
