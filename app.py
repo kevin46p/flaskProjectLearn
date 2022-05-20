@@ -15,7 +15,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/520')
+@app.route('/521')
 def love_520_lzy():
     return render_template("520lzy.html")
 

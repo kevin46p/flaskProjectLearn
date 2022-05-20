@@ -8,7 +8,7 @@ new TypeIt("#pllzy", {
     .delete(null, {
         delay: 500
     })
-    .type("崽崽，520快乐哦")
+    .type("崽崽，521快乐哦")
     .pause(3000)
     .go();
 
